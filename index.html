@@ -14,9 +14,8 @@
 
   body {
     font-family: 'Arial', sans-serif;
-    background-color: #0d1b2a; /* Dark blue background */
-    color: #fff;
-    line-height: 1.6;
+    background-color: #ffffff; /* White background */
+    color: #000;
   }
 
   a {
@@ -24,32 +23,62 @@
     color: inherit;
   }
 
-  /* Container styles */
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+  /* Header with logo and navigation */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid #0d1b2a;
+    animation: fadeInDown 1s ease;
   }
 
-  /* Header / Hero Section */
+  .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #0d1b2a;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.4s;
+  }
+
+  nav a {
+    font-weight: bold;
+    color: #0d1b2a;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #ff4d6d;
+  }
+
+  /* Hero / Banner Section */
   .hero {
-    background: linear-gradient(135deg, #1b263b, #415a77);
-    padding: 60px 20px;
+    padding: 40px 20px;
     text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 0.6s;
   }
 
   .hero h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
-    color: #ff4d6d; /* red accent */
-    animation: fadeInDown 1s ease-in-out;
+    color: #0d1b2a;
   }
 
   .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: #f0f0f0;
-    animation: fadeIn 1.5s ease-in-out;
+    color: #0d1b2a;
   }
 
   .hero button {
@@ -64,28 +93,38 @@
   }
 
   .hero button:hover {
-    background-color: #ff1a3d;
+    background-color: #e60057;
   }
 
-  /* Slider Section */
+  /* Sliders Section */
   .sliders {
     display: flex;
     overflow-x: auto;
     padding: 40px 20px;
     gap: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.8s;
   }
 
   .slide {
     flex: 0 0 auto;
     min-width: 200px;
     max-width: 300px;
-    background-color: #1b263b;
+    background-color: #0d1b2a;
+    color: #fff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
     animation: slideIn 1s ease forwards;
   }
+
+  .slide:nth-child(1) { animation-delay: 1s; }
+  .slide:nth-child(2) { animation-delay: 1.2s; }
+  .slide:nth-child(3) { animation-delay: 1.4s; }
+  .slide:nth-child(4) { animation-delay: 1.6s; }
+  .slide:nth-child(5) { animation-delay: 1.8s; }
 
   .slide:hover {
     transform: translateY(-5px);
@@ -97,21 +136,18 @@
     color: #ff4d6d;
   }
 
-  .slide p {
-    font-size: 0.95em;
-    margin-bottom: 15px;
-  }
-
-  /* Job Listings Section */
+  /* Job Listings */
   .jobs {
     padding: 60px 20px;
-    background-color: #0d1b2a;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
   }
 
   .jobs h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: #ff4d6d;
+    color: #0d1b2a;
     font-size: 2.5em;
   }
 
@@ -123,10 +159,11 @@
   }
 
   .job-card {
-    background-color: #1b263b;
+    background-color: #0d1b2a;
     padding: 20px;
     border-radius: 10px;
     width: 300px;
+    color: #fff;
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
@@ -140,29 +177,13 @@
     color: #ff4d6d;
   }
 
-  .job-card p {
-    margin-bottom: 15px;
-  }
-
-  .apply-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff4d6d;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .apply-btn:hover {
-    background-color: #ff1a3d;
-  }
-
-  /* Testimonials / Clients Section */
+  /* Client Logos Section with animation */
   .testimonials {
     padding: 60px 20px;
-    background-color: #14213d;
+    background-color: #0d1b2a;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1.2s;
   }
 
   .testimonials h2 {
@@ -172,68 +193,42 @@
     font-size: 2.5em;
   }
 
-  .testimonial-container {
+  .logo-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1.4s;
   }
 
-  .testimonial {
-    background-color: #1b263b;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s;
+  .logo-grid img {
+    max-width: 150px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: zoomIn 0.8s forwards;
   }
 
-  .testimonial:hover {
-    transform: translateY(-5px);
-  }
+  /* Animate each logo with delay */
+  .logo-grid img:nth-child(1) { animation-delay: 1.5s; }
+  .logo-grid img:nth-child(2) { animation-delay: 1.6s; }
+  .logo-grid img:nth-child(3) { animation-delay: 1.7s; }
+  .logo-grid img:nth-child(4) { animation-delay: 1.8s; }
+  .logo-grid img:nth-child(5) { animation-delay: 1.9s; }
 
-  .testimonial p {
-    font-style: italic;
-  }
-
-  .testimonial h4 {
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #ff4d6d;
-  }
-
-  /* Footer */
+  /* Footer animation */
   footer {
     background-color: #0d1b2a;
     padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  .footer-section {
-    flex: 1 1 200px;
-    margin: 10px;
-  }
-
-  .footer-section h3 {
-    margin-bottom: 15px;
-    color: #ff4d6d;
-  }
-
-  .footer-links a {
-    display: block;
-    margin-bottom: 10px;
-    color: #f0f0f0;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover {
-    color: #ff4d6d;
-  }
-
-  .contact-info p {
-    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+    animation-delay: 1.6s;
   }
 
   /* Animations */
@@ -241,26 +236,38 @@
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
   @keyframes slideIn {
     from { opacity: 0; transform: translateX(50px); }
     to { opacity: 1; transform: translateX(0); }
   }
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
 
-  /* Responsive Design */
+  /* Responsive design */
   @media(max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+    }
+    nav {
+      margin-top: 10px;
+    }
     .sliders {
       flex-direction: column;
       overflow-x: auto;
     }
-    .testimonial-container {
+    .logo-grid {
       flex-direction: column;
-      align-items: center;
     }
     footer {
       flex-direction: column;
@@ -270,15 +277,26 @@
 </head>
 <body>
 
-<!-- Hero Section -->
-<section class="hero container">
+<!-- Header with logo and navigation -->
+<header>
+  <div class="logo">JobPortal</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Jobs</a>
+    <a href="#">Companies</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero / Banner Section -->
+<section class="hero">
   <h1>Find Your Dream Job</h1>
   <p>Discover thousands of job opportunities from top companies worldwide.</p>
   <button>Get Started</button>
 </section>
 
 <!-- Animated Sliders -->
-<section class="sliders container">
+<section class="sliders">
   <div class="slide">
     <h3>Software Engineer</h3>
     <p>Join a leading tech firm and build innovative solutions.</p>
@@ -302,7 +320,7 @@
 </section>
 
 <!-- Job Listings -->
-<section class="jobs container">
+<section class="jobs">
   <h2>Current Job Openings</h2>
   <div class="job-list">
     <div class="job-card">
@@ -332,22 +350,15 @@
   </div>
 </section>
 
-<!-- Testimonials / Clients -->
-<section class="testimonials container">
-  <h2>What Our Clients Say</h2>
-  <div class="testimonial-container">
-    <div class="testimonial">
-      <p>"This platform helped us find top talent quickly and efficiently."</p>
-      <h4>Jane Doe, HR Manager</h4>
-    </div>
-    <div class="testimonial">
-      <p>"An excellent resource for job seekers and employers alike."</p>
-      <h4>John Smith, CEO</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Highly recommended for anyone looking to advance their career."</p>
-      <h4>Emily Johnson, Candidate</h4>
-    </div>
+<!-- Client Logos with animation -->
+<section class="testimonials">
+  <h2>Our Clients</h2>
+  <div class="logo-grid">
+    <img src="https://via.placeholder.com/150x50?text=Client+1" alt="Client 1" />
+    <img src="https://via.placeholder.com/150x50?text=Client+2" alt="Client 2" />
+    <img src="https://via.placeholder.com/150x50?text=Client+3" alt="Client 3" />
+    <img src="https://via.placeholder.com/150x50?text=Client+4" alt="Client 4" />
+    <img src="https://via.placeholder.com/150x50?text=Client+5" alt="Client 5" />
   </div>
 </section>
 
