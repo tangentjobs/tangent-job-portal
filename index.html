@@ -3,385 +3,373 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Job Portal</title>
+<title>Job Website</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
-  /* Reset some default styles */
+  /* Reset & Base Styles */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
   body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* White background */
-    color: #000;
+    background: #fff;
+    color: #333;
   }
+  /* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #001f3f; /* dark blue */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: background-color 0.3s;
+}
+header:hover {
+  background-color: #003366; /* lighter blue on hover */
+}
+.logo {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+}
+nav a {
+  color: #fff;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ff4d6d; /* red on hover */
+}
 
-  a {
-    text-decoration: none;
-    color: inherit;
+/* Banner Slider */
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  margin-top: 20px;
+}
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+.slide:nth-child(1) { background-image: url('https://via.placeholder.com/1200x400/003366/ffffff?text=Banner+1'); }
+.slide:nth-child(2) { background-image: url('https://via.placeholder.com/1200x400/00509e/ffffff?text=Banner+2'); }
+.slide:nth-child(3) { background-image: url('https://via.placeholder.com/1200x400/0066cc/ffffff?text=Banner+3'); }
+.slide:nth-child(4) { background-image: url('https://via.placeholder.com/1200x400/0077e6/ffffff?text=Banner+4'); }
+.slide:nth-child(5) { background-image: url('https://via.placeholder.com/1200x400/0099ff/ffffff?text=Banner+5'); }
+
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  background-color: #ff4d6d;
+  color: #fff;
+  padding: 12px 24px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #e60057;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  background-color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s forwards;
+  margin-bottom: 20px;
+}
+section:nth-child(even) {
+  background-color: #001f3f; /* dark blue for contrast */
+  color: #fff;
+}
+section:nth-child(odd) {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Our Service */
+#our-service h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff4d6d; /* red color */
+}
+#our-service p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Hiring Details */
+#hiring-details {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #003366; /* blue */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.job {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  color: #000;
+  transition: transform 0.3s;
+}
+.job:hover {
+  transform: translateY(-5px);
+}
+.job h3 {
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+.apply-btn {
+  align-self: center;
+  background-color: #ff4d6d;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+.apply-btn:hover {
+  background-color: #e60057;
+}
+
+/* Client Logos - Animation */
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+.client-logo {
+  width: 150px;
+  margin: 15px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
+}
 
-  /* Header with logo and navigation */
+/* FAQs */
+#faqs {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #001f3f;
+  transition: max-height 0.3s ease;
+}
+.faq h4 {
+  padding: 15px;
+  cursor: pointer;
+  background-color: #ff4d6d;
+  color: #fff;
+}
+.faq p {
+  padding: 15px;
+  display: none;
+  font-size: 1em;
+  line-height: 1.5;
+}
+.faq.active p {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background-color: #001f3f;
+  color: #fff;
+  padding: 20px 50px;
+  text-align: center;
+}
+footer .social-icons a {
+  color: #fff;
+  margin: 0 15px;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+footer .social-icons a:hover {
+  color: #ff4d6d;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media(max-width: 768px) {
   header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 2px solid #0d1b2a;
-    animation: fadeInDown 1s ease;
+    flex-direction: column;
   }
-
-  .logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #0d1b2a;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 0.2s;
-  }
-
   nav {
-    display: flex;
-    gap: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 0.4s;
+    margin-top: 10px;
   }
-
-  nav a {
-    font-weight: bold;
-    color: #0d1b2a;
-    transition: color 0.3s;
-  }
-
-  nav a:hover {
-    color: #ff4d6d;
-  }
-
-  /* Hero / Banner Section */
-  .hero {
-    padding: 40px 20px;
-    text-align: center;
-    opacity: 0;
-    animation: fadeInUp 1s forwards;
-    animation-delay: 0.6s;
-  }
-
-  .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #0d1b2a;
-  }
-
-  .hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: #0d1b2a;
-  }
-
-  .hero button {
-    padding: 15px 30px;
-    font-size: 1em;
-    background-color: #ff4d6d;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .hero button:hover {
-    background-color: #e60057;
-  }
-
-  /* Sliders Section */
-  .sliders {
-    display: flex;
-    overflow-x: auto;
-    padding: 40px 20px;
-    gap: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 0.8s;
-  }
-
-  .slide {
-    flex: 0 0 auto;
-    min-width: 200px;
-    max-width: 300px;
-    background-color: #0d1b2a;
-    color: #fff;
-    border-radius: 10px;
+  #hiring-details {
     padding: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-    animation: slideIn 1s ease forwards;
   }
-
-  .slide:nth-child(1) { animation-delay: 1s; }
-  .slide:nth-child(2) { animation-delay: 1.2s; }
-  .slide:nth-child(3) { animation-delay: 1.4s; }
-  .slide:nth-child(4) { animation-delay: 1.6s; }
-  .slide:nth-child(5) { animation-delay: 1.8s; }
-
-  .slide:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
-  }
-
-  .slide h3 {
-    margin-bottom: 10px;
-    color: #ff4d6d;
-  }
-
-  /* Job Listings */
-  .jobs {
-    padding: 60px 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1s;
-  }
-
-  .jobs h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #0d1b2a;
-    font-size: 2.5em;
-  }
-
-  .job-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .job-card {
-    background-color: #0d1b2a;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    color: #fff;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  }
-
-  .job-card h3 {
-    margin-bottom: 10px;
-    color: #ff4d6d;
-  }
-
-  /* Client Logos Section with animation */
-  .testimonials {
-    padding: 60px 20px;
-    background-color: #0d1b2a;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1.2s;
-  }
-
-  .testimonials h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #ff4d6d;
-    font-size: 2.5em;
-  }
-
-  .logo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 1.4s;
-  }
-
-  .logo-grid img {
-    max-width: 150px;
-    height: auto;
-    opacity: 0;
-    transform: scale(0.8);
-    animation: zoomIn 0.8s forwards;
-  }
-
-  /* Animate each logo with delay */
-  .logo-grid img:nth-child(1) { animation-delay: 1.5s; }
-  .logo-grid img:nth-child(2) { animation-delay: 1.6s; }
-  .logo-grid img:nth-child(3) { animation-delay: 1.7s; }
-  .logo-grid img:nth-child(4) { animation-delay: 1.8s; }
-  .logo-grid img:nth-child(5) { animation-delay: 1.9s; }
-
-  /* Footer animation */
-  footer {
-    background-color: #0d1b2a;
-    padding: 40px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    opacity: 0;
-    animation: fadeInUp 1s forwards;
-    animation-delay: 1.6s;
-  }
-
-  /* Animations */
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  /* Responsive design */
-  @media(max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: center;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    .sliders {
-      flex-direction: column;
-      overflow-x: auto;
-    }
-    .logo-grid {
-      flex-direction: column;
-    }
-    footer {
-      flex-direction: column;
-    }
-  }
+}
 </style>
 </head>
 <body>
 
-<!-- Header with logo and navigation -->
+<!-- Header -->
 <header>
-  <div class="logo">JobPortal</div>
+  <div class="logo">JobSite</div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Jobs</a>
-    <a href="#">Companies</a>
-    <a href="#">Contact</a>
+    <a href="#our-service">Our Service</a>
+    <a href="#hiring-details">Hiring Details</a>
+    <a href="#clients">Clients</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#footer">Contact</a>
   </nav>
 </header>
 
-<!-- Hero / Banner Section -->
-<section class="hero">
-  <h1>Find Your Dream Job</h1>
-  <p>Discover thousands of job opportunities from top companies worldwide.</p>
-  <button>Get Started</button>
+<!-- Banner Slider -->
+<div class="slider" id="slider">
+  <div class="slides" id="slides">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+</div>
+<div class="buttons">
+  <button class="btn" onclick="applyNow()">Apply Now</button>
+</div>
+
+<!-- Our Service -->
+<section id="our-service" style="animation-delay: 0.5s;">
+  <h2>Our Service</h2>
+  <p>We provide top-quality job listings, career guidance, and hiring solutions to help you succeed in your career journey.</p>
 </section>
 
-<!-- Animated Sliders -->
-<section class="sliders">
-  <div class="slide">
+<!-- Hiring Details -->
+<section id="hiring-details" style="animation-delay: 1s;">
+  <div class="job">
     <h3>Software Engineer</h3>
-    <p>Join a leading tech firm and build innovative solutions.</p>
+    <p>Salary: $80,000 - $120,000</p>
+    <p>Job Description: Develop and maintain web applications...</p>
   </div>
-  <div class="slide">
-    <h3>Marketing Specialist</h3>
-    <p>Drive brand growth and engagement with creative campaigns.</p>
-  </div>
-  <div class="slide">
-    <h3>Data Analyst</h3>
-    <p>Analyze data to help companies make informed decisions.</p>
-  </div>
-  <div class="slide">
+  <div class="job">
     <h3>Product Manager</h3>
-    <p>Lead product development from concept to launch.</p>
+    <p>Salary: $90,000 - $140,000</p>
+    <p>Job Description: Lead product development teams...</p>
   </div>
-  <div class="slide">
-    <h3>UX Designer</h3>
-    <p>Design intuitive user experiences for global platforms.</p>
+  <button class="apply-btn" onclick="applyNow()">Apply Now</button>
+</section>
+
+<!-- Clients Logo Animation -->
+<section id="clients" style="animation-delay: 1.5s;">
+  <h2 style="text-align:center; margin-bottom:20px; color:#ff4d6d;">Our Clients</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center;">
+    <img src="https://via.placeholder.com/150x50?text=Client1" class="client-logo" style="animation-delay: 2s;" />
+    <img src="https://via.placeholder.com/150x50?text=Client2" class="client-logo" style="animation-delay: 2.2s;" />
+    <img src="https://via.placeholder.com/150x50?text=Client3" class="client-logo" style="animation-delay: 2.4s;" />
+    <img src="https://via.placeholder.com/150x50?text=Client4" class="client-logo" style="animation-delay: 2.6s;" />
   </div>
 </section>
 
-<!-- Job Listings -->
-<section class="jobs">
-  <h2>Current Job Openings</h2>
-  <div class="job-list">
-    <div class="job-card">
-      <h3>Frontend Developer</h3>
-      <p>Location: New York, NY</p>
-      <p>Build stunning web interfaces with modern frameworks.</p>
-      <button class="apply-btn">Apply Now</button>
-    </div>
-    <div class="job-card">
-      <h3>Digital Marketing Manager</h3>
-      <p>Location: San Francisco, CA</p>
-      <p>Lead marketing campaigns and grow brand presence.</p>
-      <button class="apply-btn">Apply Now</button>
-    </div>
-    <div class="job-card">
-      <h3>Data Scientist</h3>
-      <p>Location: Remote</p>
-      <p>Transform data into actionable insights.</p>
-      <button class="apply-btn">Apply Now</button>
-    </div>
-    <div class="job-card">
-      <h3>Product Owner</h3>
-      <p>Location: Austin, TX</p>
-      <p>Define product vision and coordinate development.</p>
-      <button class="apply-btn">Apply Now</button>
-    </div>
+<!-- FAQs -->
+<section id="faqs" style="animation-delay: 2s;">
+  <h2 style="text-align:center; margin-bottom:20px; color:#ff4d6d;">FAQs</h2>
+  <div class="faq">
+    <h4>What is the application process?</h4>
+    <p>Simply click on the "Apply Now" button and submit your resume.</p>
   </div>
-</section>
-
-<!-- Client Logos with animation -->
-<section class="testimonials">
-  <h2>Our Clients</h2>
-  <div class="logo-grid">
-    <img src="https://via.placeholder.com/150x50?text=Client+1" alt="Client 1" />
-    <img src="https://via.placeholder.com/150x50?text=Client+2" alt="Client 2" />
-    <img src="https://via.placeholder.com/150x50?text=Client+3" alt="Client 3" />
-    <img src="https://via.placeholder.com/150x50?text=Client+4" alt="Client 4" />
-    <img src="https://via.placeholder.com/150x50?text=Client+5" alt="Client 5" />
+  <div class="faq">
+    <h4>How do I contact support?</h4>
+    <p>You can contact us via email or phone listed in the footer.</p>
   </div>
 </section>
 
 <!-- Footer -->
-<footer>
-  <div class="footer-section">
-    <h3>Quick Links</h3>
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">Jobs</a>
-      <a href="#">Companies</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-  <div class="footer-section">
-    <h3>Contact Us</h3>
-    <div class="contact-info">
-      <p>Email: info@jobportal.com</p>
-      <p>Phone: +1 234 567 890</p>
-      <p>Address: 123 Main Street, City, Country</p>
-    </div>
+<footer id="footer">
+  <p>Contact us: email@jobs.com | +1 234 567 890</p>
+  <div class="social-icons">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
   </div>
 </footer>
 
+<!-- Scripts -->
+<script>
+  // Slider functionality
+  let currentSlide = 0;
+  const slides = document.getElementById('slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+
+  function showSlide(index) {
+    slides.style.transform = 'translateX(' + (-index * 100) + '%)';
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  setInterval(nextSlide, 3000); // change slide every 3 seconds
+
+  function applyNow() {
+    alert('Application process coming soon!');
+  }
+
+  // FAQs toggle
+  document.querySelectorAll('.faq h4').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('active');
+    });
+  });
+</script>
 </body>
 </html>
