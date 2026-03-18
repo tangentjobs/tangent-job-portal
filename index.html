@@ -111,16 +111,34 @@ body {
 
 .slide {
   flex: 1 0 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  background: linear-gradient(135deg, var(--color-lightblue), transparent);
-  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Caption overlay styles */
+.slide-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
-  color: var(--color-darkblue);
-  font-size: 1.2em;
-  flex-direction: column;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .slide h2 {
@@ -129,7 +147,7 @@ body {
   animation: fadeIn 1s ease-in;
 }
 
-.slide button {
+.apply-btn {
   padding: 12px 24px;
   background-color: var(--color-red);
   color: #fff;
@@ -138,10 +156,9 @@ body {
   cursor: pointer;
   font-size: 1em;
   transition: background 0.3s, transform 0.3s;
-  margin-top: 20px;
 }
 
-.slide button:hover {
+.apply-btn:hover {
   background-color: darkred;
   transform: scale(1.05);
 }
@@ -358,7 +375,6 @@ section {
     flex-direction: column;
   }
 }
-
 /* Animate fadeIn for sections */
 @keyframes fadeInSection {
   from {opacity: 0; transform: translateY(20px);}
@@ -392,25 +408,40 @@ section {
 <!-- HERO SLIDER -->
 <section class="hero" id="hero">
   <div class="slider" id="slider">
-    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
-      <h2>Join Our Dynamic Team</h2>
-      <button class="apply-btn">Apply Now</button>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 1" />
+      <div class="slide-caption">
+        <h2>Join Our Dynamic Team</h2>
+        <button class="apply-btn">Apply Now</button>
+      </div>
     </div>
-    <div class="slide" style="background: linear-gradient(135deg, rgba(192,57,43,0.2), transparent);">
-      <h2>Exciting Opportunities Await</h2>
-      <button class="apply-btn">Apply Now</button>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1494526585095-c4185f1d63eb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 2" />
+      <div class="slide-caption">
+        <h2>Exciting Opportunities Await</h2>
+        <button class="apply-btn">Apply Now</button>
+      </div>
     </div>
-    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
-      <h2>Grow Your Career With Us</h2>
-      <button class="apply-btn">Apply Now</button>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 3" />
+      <div class="slide-caption">
+        <h2>Grow Your Career With Us</h2>
+        <button class="apply-btn">Apply Now</button>
+      </div>
     </div>
-    <div class="slide" style="background: linear-gradient(135deg, rgba(192,57,43,0.2), transparent);">
-      <h2>Be Part of Innovation</h2>
-      <button class="apply-btn">Apply Now</button>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 4" />
+      <div class="slide-caption">
+        <h2>Be Part of Innovation</h2>
+        <button class="apply-btn">Apply Now</button>
+      </div>
     </div>
-    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
-      <h2>Make a Difference Today</h2>
-      <button class="apply-btn">Apply Now</button>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1549924738-9e2a9f3f4f84?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 5" />
+      <div class="slide-caption">
+        <h2>Make a Difference Today</h2>
+        <button class="apply-btn">Apply Now</button>
+      </div>
     </div>
   </div>
 </section>
