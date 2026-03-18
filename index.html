@@ -11,6 +11,7 @@
   --color-darkblue: #003366;
   --color-red: #c0392b;
   --color-white: #fff;
+  --header-bg-color: #fff; /* solid header background color */
   --font-family: 'Montserrat', sans-serif;
 }
 
@@ -34,17 +35,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: transparent; /* no background */
+  padding: 10px 40px; /* padding for spacing around content */
+  background-color: var(--header-bg-color);
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  height: 80px; /* fixed height */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 999;
-  transition: all 0.3s ease;
+  /* No fixed height, fits content naturally */
 }
 
 /* Logo styles */
@@ -59,7 +59,6 @@ body {
   font-weight: bold;
   color: #fff;
   font-size: 14px;
-  text-align: center;
   cursor: pointer;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -81,8 +80,10 @@ body {
   background: transparent; /* no background */
 }
 
+/* Hover effect: only change text color, no background */
 .nav a:hover {
-  color: var(--color-red); /* red on hover */
+  color: var(--color-red);
+  background: transparent;
 }
 
 /* Hamburger menu for mobile */
