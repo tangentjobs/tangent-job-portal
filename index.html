@@ -11,7 +11,6 @@
   --color-darkblue: #003366;
   --color-red: #c0392b;
   --color-white: #fff;
-  --color-lightblue: rgba(0,51,102,0.1);
   --font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,11 +34,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px; /* Larger padding for bigger header */
-  background-color: #003366; /* Solid blue background */
+  padding: 20px 40px;
+  background-color: transparent; /* no background */
   width: 100%;
-  max-width: 1200px; /* optional max width for large screens */
+  max-width: 1200px;
   margin: 0 auto;
+  height: 80px; /* fixed height */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -51,8 +51,8 @@ body {
 .logo {
   width: 60px;
   height: 60px;
-  background-color: #3498db; /* blue color for logo background */
-  border-radius: 50%; /* round shape */
+  background-color: #3498db; /* blue background for logo */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +65,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Navigation menu */
+/* Navigation styles */
 .nav {
   display: flex;
   gap: 20px;
@@ -77,12 +77,12 @@ body {
   font-weight: 600;
   padding: 8px 12px;
   border-radius: 4px;
-  transition: color 0.3s, background 0.3s;
+  transition: color 0.3s;
+  background: transparent; /* no background */
 }
 
 .nav a:hover {
   color: var(--color-red); /* red on hover */
-  background: rgba(255,255,255,0.2);
 }
 
 /* Hamburger menu for mobile */
@@ -185,7 +185,7 @@ body {
   to {opacity: 1;}
 }
 
-/* SECTION STYLES */
+/* Section styles */
 section {
   padding: 60px 20px;
   background: linear-gradient(135deg, rgba(0,51,102,0.05), rgba(192,57,43,0.05));
@@ -194,7 +194,7 @@ section {
   transition: all 0.3s ease;
 }
 
-/* Hiring Section */
+/* Hiring section */
 .hiring {
   background: linear-gradient(135deg, rgba(0,51,102,0.1), rgba(192,57,43,0.1));
   display: flex;
@@ -202,7 +202,6 @@ section {
   gap: 20px;
   justify-content: center;
 }
-
 .job {
   background: #fff;
   padding: 20px;
@@ -211,21 +210,17 @@ section {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .job:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
-
 .job h3 {
   margin-bottom: 10px;
   color: var(--color-darkblue);
 }
-
 .job p {
   margin-bottom: 15px;
 }
-
 .apply-btn {
   padding: 10px 20px;
   background-color: var(--color-red);
@@ -235,12 +230,11 @@ section {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .apply-btn:hover {
   background-color: darkred;
 }
 
-/* Clients Section */
+/* Clients section */
 .clients {
   display: flex;
   overflow-x: auto;
@@ -248,7 +242,6 @@ section {
   padding: 20px 0;
   align-items: center;
 }
-
 .client-logo {
   flex: 0 0 auto;
   width: 150px;
@@ -261,7 +254,6 @@ section {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s;
 }
-
 .client-logo:hover {
   transform: scale(1.05);
 }
@@ -271,12 +263,10 @@ section {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .faq {
   border-bottom: 1px solid #ccc;
   padding: 15px 0;
 }
-
 .faq-question {
   display: flex;
   justify-content: space-between;
@@ -286,24 +276,21 @@ section {
   font-size: 1.1em;
   transition: color 0.3s;
 }
-
 .faq-question:hover {
   color: var(--color-red);
 }
-
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
   padding: 0 0;
 }
-
 .faq-answer.open {
   max-height: 200px;
   padding: 10px 0;
 }
 
-/* Footer */
+/* Footer styles */
 .footer {
   background: linear-gradient(135deg, rgba(0,51,102,0.1), rgba(192,57,43,0.1));
   display: flex;
@@ -312,17 +299,14 @@ section {
   padding: 40px 20px;
   margin-top: 40px;
 }
-
 .footer-column {
   flex: 1 1 200px;
   margin: 10px;
 }
-
 .footer h4 {
   color: var(--color-darkblue);
   margin-bottom: 15px;
 }
-
 .footer a {
   display: block;
   margin-bottom: 10px;
@@ -330,23 +314,19 @@ section {
   color: #333;
   transition: color 0.3s;
 }
-
 .footer a:hover {
   color: var(--color-red);
 }
-
 .social-icons {
   display: flex;
   gap: 15px;
   margin-top: 10px;
 }
-
 .social-icons a {
   font-size: 1.5em;
   color: var(--color-darkblue);
   transition: color 0.3s;
 }
-
 .social-icons a:hover {
   color: var(--color-red);
 }
