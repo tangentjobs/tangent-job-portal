@@ -67,7 +67,6 @@ body {
   display: flex;
   gap: 20px;
 }
-
 .nav a {
   text-decoration: none;
   color: #fff;
@@ -76,7 +75,6 @@ body {
   border-radius: 4px;
   transition: color 0.3s;
 }
-
 .nav a:hover {
   color: var(--color-red);
 }
@@ -90,7 +88,6 @@ body {
   height: 21px;
   justify-content: space-between;
 }
-
 .menu-toggle span {
   display: block;
   height: 3px;
@@ -99,12 +96,12 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Banner section with reduced height */
+/* Banner with reduced height for modern look */
 .hero {
   position: relative;
   overflow: hidden;
-  height: 40vh; /* Reduced height to less than half of viewport height */
-  margin: 0; /* No margin around */
+  height: 40vh;
+  margin: 0;
   padding: 0;
   display: flex;
   align-items: stretch;
@@ -113,7 +110,7 @@ body {
 /* Slider container */
 .slider {
   display: flex;
-  width: 500%; /* 5 slides for animation */
+  width: 500%;
   height: 100%;
   animation: slide 25s infinite;
 }
@@ -123,7 +120,7 @@ body {
   flex: 1 0 100%;
   background-size: cover;
   background-position: center;
-  height: 100%; /* Fill parent height */
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -131,7 +128,7 @@ body {
   position: relative;
 }
 
-/* Caption overlay */
+/* Caption overlay with semi-transparent background and blur effect */
 .slide-caption {
   position: absolute;
   bottom: 20px;
@@ -142,14 +139,13 @@ body {
   background: rgba(0,0,0,0.4);
   padding: 15px;
   border-radius: 8px;
+  max-width: 90%;
 }
-
 .slide h2 {
   font-size: 2em;
   margin-bottom: 20px;
   animation: fadeIn 1s ease-in;
 }
-
 .apply-btn {
   padding: 12px 24px;
   background-color: var(--color-red);
@@ -160,7 +156,6 @@ body {
   font-size: 1em;
   transition: background 0.3s, transform 0.3s;
 }
-
 .apply-btn:hover {
   background-color: darkred;
   transform: scale(1.05);
@@ -182,26 +177,29 @@ body {
   95% {transform: translateX(-300%);}
   100% {transform: translateX(0);}
 }
-
-/* Fade in animation for text */
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
 }
 
-/* Sections styling - no spaces between header and sections */
+/* Additional section styles */
 section {
   padding: 60px 20px;
   margin: 0;
   width: 100%;
+  background-color: #fff;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-/* Additional styles for hiring, clients, FAQs, contact, footer */
+/* Hiring jobs styling */
 .hiring {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 .job {
   background-color: #fff;
@@ -211,11 +209,19 @@ section {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   text-align: center;
 }
+.job h3 {
+  margin-bottom: 10px;
+}
+.job p {
+  margin-bottom: 15px;
+}
+
+/* Clients logos styling */
 .clients {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 .client-logo {
   background-color: #eee;
@@ -224,6 +230,8 @@ section {
   width: 100px;
   text-align: center;
 }
+
+/* FAQs styling */
 .faqs {
   max-width: 800px;
   margin: 0 auto;
@@ -245,6 +253,8 @@ section {
 .faq-answer.open {
   display: block;
 }
+
+/* Footer styles */
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -263,8 +273,8 @@ footer {
   display: inline-block;
 }
 
-/* Responsive styles for mobile */
-@media (max-width: 768px) {
+/* Responsive for mobile */
+@media(max-width: 768px) {
   .nav {
     display: none;
     flex-direction: column;
@@ -284,7 +294,7 @@ footer {
 
 <!-- HEADER -->
 <header class="header">
-  <div class="logo">JobPortal<span>Logo</span></div>
+  <div class="logo">JobPortal</div>
   <nav class="nav" id="nav-menu">
     <a href="#services">Our Services</a>
     <a href="#hiring">Hiring</a>
@@ -337,7 +347,7 @@ footer {
 
 <!-- Hiring Section -->
 <section id="hiring" class="section animate" style="animation-delay: 0.2s;">
-  <h2 style="text-align:center; margin-bottom:30px;">Current Job Openings</h2>
+  <h2>Current Job Openings</h2>
   <div class="hiring">
     <div class="job">
       <h3>Software Developer</h3>
@@ -359,7 +369,7 @@ footer {
 
 <!-- Clients Section -->
 <section id="clients" class="section animate" style="animation-delay: 0.4s;">
-  <h2 style="text-align:center; margin-bottom:30px;">Our Clients</h2>
+  <h2>Our Clients</h2>
   <div class="clients">
     <div class="client-logo">Client 1</div>
     <div class="client-logo">Client 2</div>
@@ -371,7 +381,7 @@ footer {
 
 <!-- FAQs Section -->
 <section id="faqs" class="section animate" style="animation-delay: 0.6s;">
-  <h2 style="text-align:center; margin-bottom:30px;">Frequently Asked Questions</h2>
+  <h2>Frequently Asked Questions</h2>
   <div class="faqs">
     <div class="faq">
       <div class="faq-question">What is the application process?</div>
@@ -390,10 +400,11 @@ footer {
 
 <!-- Contact & Footer -->
 <section id="contact" class="section animate" style="animation-delay: 0.8s;">
-  <h2 style="text-align:center; margin-bottom:20px;">Contact Us</h2>
+  <h2>Contact Us</h2>
   <p style="text-align:center;">Email: info@jobportal.com | Phone: +123 456 7890 | Address: 123 Main St, City</p>
 </section>
 
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-column">
     <h4>Quick Links</h4>
