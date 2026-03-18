@@ -8,10 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --color-darkblue: #003366;
+  --color-darkblue: #003366; /* Dark blue for logo */
   --color-red: #c0392b;
   --color-white: #fff;
-  --header-bg-color: #007BFF; /* blue background for header */
+  --header-bg-color: #007BFF; /* Blue background for header */
   --font-family: 'Montserrat', sans-serif;
 }
 
@@ -48,7 +48,7 @@ body {
 .logo {
   width: 60px;
   height: 60px;
-  background-color: #3498db; /* blue background for logo */
+  background-color: var(--color-darkblue);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -59,6 +59,7 @@ body {
   cursor: pointer;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Navigation styles */
