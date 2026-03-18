@@ -11,7 +11,7 @@
   --color-darkblue: #003366;
   --color-red: #c0392b;
   --color-white: #fff;
-  --header-bg-color: #fff; /* solid header background color */
+  --header-bg-color: #007BFF; /* blue background for header */
   --font-family: 'Montserrat', sans-serif;
 }
 
@@ -30,21 +30,18 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HEADER */
+/* HEADER with content-fitting background */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px; /* padding for spacing around content */
+  padding: 10px 40px; /* padding around content */
   background-color: var(--header-bg-color);
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%; /* full width of viewport */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 999;
-  /* No fixed height, fits content naturally */
 }
 
 /* Logo styles */
@@ -80,7 +77,6 @@ body {
   background: transparent; /* no background */
 }
 
-/* Hover effect: only change text color, no background */
 .nav a:hover {
   color: var(--color-red);
   background: transparent;
@@ -487,7 +483,6 @@ section {
   </div>
 </footer>
 
-<!-- Scripts -->
 <script>
   // Toggle mobile menu
   const menuToggle = document.getElementById('menu-toggle');
@@ -501,35 +496,30 @@ section {
     }
   });
 
-  // Animate FAQ accordion
+  // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(q => {
     q.addEventListener('click', () => {
-      const answer = q.nextElementSibling;
-      answer.classList.toggle('open');
+      q.nextElementSibling.classList.toggle('open');
     });
   });
 
   // Animate sections on scroll
   const sections = document.querySelectorAll('.animate');
-  const options = {
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver(function(entries, observer) {
+  const options = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = 1;
         entry.target.style.transform = 'translateY(0)';
         entry.target.style.transition = 'all 1s ease-out';
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
   }, options);
-
-  sections.forEach(section => {
-    section.style.opacity = 0;
-    section.style.transform = 'translateY(20px)';
-    observer.observe(section);
+  sections.forEach(sec => {
+    sec.style.opacity = 0;
+    sec.style.transform = 'translateY(20px)';
+    observer.observe(sec);
   });
 </script>
 </body>
