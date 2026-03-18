@@ -8,10 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --color-darkblue: #003366; /* Dark blue for logo */
+  --color-darkblue: #003366; /* Dark blue for logo and header background */
   --color-red: #c0392b;
   --color-white: #fff;
-  --header-bg-color: #003366; /* Blue background for header */
+  --header-bg-color: #003366; /* Changed to dark blue */
   --font-family: 'Montserrat', sans-serif;
 }
 
@@ -30,7 +30,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* HEADER with content-fitting background */
+/* HEADER with dark blue background */
 .header {
   display: flex;
   justify-content: space-between;
@@ -101,11 +101,11 @@ body {
   transition: all 0.3s ease;
 }
 
-/* HERO SLIDER */
+/* HERO SLIDER with reduced height for seamless banner */
 .hero {
   position: relative;
   overflow: hidden;
-  height: 60vh;
+  height: 50vh; /* reduced height for seamless transition */
 }
 
 .slider {
@@ -120,7 +120,7 @@ body {
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 50vh; /* match hero height */
   display: flex;
   align-items: flex-end;
   justify-content: center;
