@@ -2,231 +2,546 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Job & Hiring Slider</title>
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<!-- Google Fonts for better font -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Job Portal</title>
+<!-- Google Fonts for better typography -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background: #fff;
-    color: #333;
-  }
-  /* Slider styles */
-.slider {
-  position: relative;
-  overflow: hidden;
-  height: 250px;
-  margin: 40px 0;
-}
-.slides {
-  display: flex;
-  transition: transform 1s ease-in-out;
-}
-.slide {
-  min-width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: stretch;
-  padding: 20px;
-  background-color: #001f3f; /* dark blue background for slides */
-}
-.job-box {
-  width: 30%;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.job-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-.job-title {
-  font-size: 1.2em;
-  color: #003366;
-  margin-bottom: 10px;
-}
-.job-salary {
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.job-desc {
-  font-size: 0.95em;
-  line-height: 1.4;
-  margin-bottom: 15px;
-}
-.apply-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff4d6d;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.apply-btn:hover {
-  background-color: #e60057;
+:root {
+  --color-darkblue: #003366;
+  --color-red: #c0392b;
+  --color-white: #fff;
+  --color-lightblue: rgba(0,51,102,0.1);
+  --font-family: 'Montserrat', sans-serif;
 }
 
-/* Responsive for smaller screens */
-@media(max-width: 1024px) {
-  .job-box {
-    width: 45%;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, rgba(0,51,102,0.1), rgba(192,57,43,0.1));
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-darkblue);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: var(--color-red);
+  margin-left: 8px;
+}
+
+/* Navigation Menu */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-darkblue);
+  font-weight: 600;
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.nav a:hover {
+  background: var(--color-lightblue);
+  transform: translateY(-2px);
+}
+
+/* Hamburger for mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  justify-content: space-between;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background-color: var(--color-darkblue);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* HERO SLIDER */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+}
+
+.slider {
+  display: flex;
+  width: 500%; /* 5 slides */
+  height: 100%;
+  animation: slide 25s infinite;
+}
+
+.slide {
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--color-lightblue), transparent);
+  position: relative;
+  text-align: center;
+  color: var(--color-darkblue);
+  font-size: 1.2em;
+  flex-direction: column;
+}
+
+.slide h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in;
+}
+
+.slide button {
+  padding: 12px 24px;
+  background-color: var(--color-red);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+
+.slide button:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
+@keyframes slide {
+  0% {transform: translateX(0);}
+  2% {transform: translateX(0);}
+  20% {transform: translateX(0);}
+  25% {transform: translateX(-100%);}
+  27% {transform: translateX(-100%);}
+  45% {transform: translateX(-100%);}
+  50% {transform: translateX(-200%);}
+  52% {transform: translateX(-200%);}
+  70% {transform: translateX(-200%);}
+  75% {transform: translateX(-300%);}
+  77% {transform: translateX(-300%);}
+  95% {transform: translateX(-300%);}
+  100% {transform: translateX(0);}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* SECTION STYLES */
+section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(0,51,102,0.05), rgba(192,57,43,0.05));
+  margin: 20px 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Hiring Section */
+.hiring {
+  background: linear-gradient(135deg, rgba(0,51,102,0.1), rgba(192,57,43,0.1));
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.job {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.job:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.job h3 {
+  margin-bottom: 10px;
+  color: var(--color-darkblue);
+}
+
+.job p {
+  margin-bottom: 15px;
+}
+
+.apply-btn {
+  padding: 10px 20px;
+  background-color: var(--color-red);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.apply-btn:hover {
+  background-color: darkred;
+}
+
+/* Clients Section */
+.clients {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: center;
+}
+
+.client-logo {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.client-logo:hover {
+  transform: scale(1.05);
+}
+
+/* FAQs Accordion */
+.faqs {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+.faq-question:hover {
+  color: var(--color-red);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0 0;
+}
+
+.faq-answer.open {
+  max-height: 200px;
+  padding: 10px 0;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, rgba(0,51,102,0.1), rgba(192,57,43,0.1));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 10px;
+}
+
+.footer h4 {
+  color: var(--color-darkblue);
+  margin-bottom: 15px;
+}
+
+.footer a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: var(--color-red);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 1.5em;
+  color: var(--color-darkblue);
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--color-red);
+}
+
+/* Responsive styles */
+@media(max-width:768px){
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav {
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .hero {
+    height: 50vh;
+  }
+  .clients {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer {
+    flex-direction: column;
   }
 }
-@media(max-width: 768px) {
-  .slide {
-    flex-direction: column;
-    height: auto;
-  }
-  .job-box {
-    width: 80%;
-    margin: 10px auto;
-  }
+
+/* Animate fadeIn for sections */
+@keyframes fadeInSection {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+.animate {
+  opacity: 0;
+  animation: fadeInSection 1s forwards;
 }
 </style>
 </head>
 <body>
 
-<!-- Slider with 5 slides, each with 3 job boxes -->
-<div class="slider" id="jobSlider">
-  <div class="slides" id="slides">
-    <!-- Slide 1 -->
-    <div class="slide">
-      <div class="job-box">
-        <div class="job-title">Web Developer</div>
-        <div class="job-salary">Salary: $70k - $90k</div>
-        <div class="job-desc">Build and maintain websites, front-end and back-end development.</div>
-        <button class="apply-btn" onclick="alert('Apply for Web Developer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Graphic Designer</div>
-        <div class="job-salary">Salary: $50k - $70k</div>
-        <div class="job-desc">Create visual concepts, designs, and illustrations for clients.</div>
-        <button class="apply-btn" onclick="alert('Apply for Graphic Designer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Data Analyst</div>
-        <div class="job-salary">Salary: $60k - $80k</div>
-        <div class="job-desc">Analyze data to help companies make informed decisions.</div>
-        <button class="apply-btn" onclick="alert('Apply for Data Analyst')">Apply Now</button>
-      </div>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">JobPortal<span>Logo</span></div>
+  <nav class="nav" id="nav-menu">
+    <a href="#services">Our Services</a>
+    <a href="#hiring">Hiring</a>
+    <a href="#clients">Clients</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+  <div class="menu-toggle" id="menu-toggle" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="hero">
+  <div class="slider" id="slider">
+    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
+      <h2>Join Our Dynamic Team</h2>
+      <button class="apply-btn">Apply Now</button>
     </div>
-    <!-- Slide 2 -->
-    <div class="slide">
-      <div class="job-box">
-        <div class="job-title">Marketing Manager</div>
-        <div class="job-salary">Salary: $80k - $110k</div>
-        <div class="job-desc">Lead marketing campaigns and brand strategies.</div>
-        <button class="apply-btn" onclick="alert('Apply for Marketing Manager')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Mobile App Developer</div>
-        <div class="job-salary">Salary: $90k - $120k</div>
-        <div class="job-desc">Design and develop mobile applications for iOS and Android.</div>
-        <button class="apply-btn" onclick="alert('Apply for Mobile App Developer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Content Writer</div>
-        <div class="job-salary">Salary: $40k - $60k</div>
-        <div class="job-desc">Create engaging content for blogs, websites, and social media.</div>
-        <button class="apply-btn" onclick="alert('Apply for Content Writer')">Apply Now</button>
-      </div>
+    <div class="slide" style="background: linear-gradient(135deg, rgba(192,57,43,0.2), transparent);">
+      <h2>Exciting Opportunities Await</h2>
+      <button class="apply-btn">Apply Now</button>
     </div>
-    <!-- Slide 3 -->
-    <div class="slide">
-      <div class="job-box">
-        <div class="job-title">UX/UI Designer</div>
-        <div class="job-salary">Salary: $70k - $100k</div>
-        <div class="job-desc">Design user interfaces and improve user experience.</div>
-        <button class="apply-btn" onclick="alert('Apply for UX/UI Designer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Network Engineer</div>
-        <div class="job-salary">Salary: $80k - $110k</div>
-        <div class="job-desc">Maintain and troubleshoot network infrastructure.</div>
-        <button class="apply-btn" onclick="alert('Apply for Network Engineer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Sales Executive</div>
-        <div class="job-salary">Salary: $50k - $70k</div>
-        <div class="job-desc">Drive sales and expand customer base.</div>
-        <button class="apply-btn" onclick="alert('Apply for Sales Executive')">Apply Now</button>
-      </div>
+    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
+      <h2>Grow Your Career With Us</h2>
+      <button class="apply-btn">Apply Now</button>
     </div>
-    <!-- Slide 4 -->
-    <div class="slide">
-      <div class="job-box">
-        <div class="job-title">HR Manager</div>
-        <div class="job-salary">Salary: $70k - $100k</div>
-        <div class="job-desc">Manage recruitment and employee relations.</div>
-        <button class="apply-btn" onclick="alert('Apply for HR Manager')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Systems Administrator</div>
-        <div class="job-salary">Salary: $60k - $85k</div>
-        <div class="job-desc">Maintain IT infrastructure and systems.</div>
-        <button class="apply-btn" onclick="alert('Apply for Systems Administrator')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Business Analyst</div>
-        <div class="job-salary">Salary: $75k - $105k</div>
-        <div class="job-desc">Analyze business processes and recommend solutions.</div>
-        <button class="apply-btn" onclick="alert('Apply for Business Analyst')">Apply Now</button>
-      </div>
+    <div class="slide" style="background: linear-gradient(135deg, rgba(192,57,43,0.2), transparent);">
+      <h2>Be Part of Innovation</h2>
+      <button class="apply-btn">Apply Now</button>
     </div>
-    <!-- Slide 5 -->
-    <div class="slide">
-      <div class="job-box">
-        <div class="job-title">Product Designer</div>
-        <div class="job-salary">Salary: $80k - $110k</div>
-        <div class="job-desc">Design user experiences for digital products.</div>
-        <button class="apply-btn" onclick="alert('Apply for Product Designer')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Data Scientist</div>
-        <div class="job-salary">Salary: $100k - $150k</div>
-        <div class="job-desc">Build models and analyze data for insights.</div>
-        <button class="apply-btn" onclick="alert('Apply for Data Scientist')">Apply Now</button>
-      </div>
-      <div class="job-box">
-        <div class="job-title">Operations Manager</div>
-        <div class="job-salary">Salary: $85k - $120k</div>
-        <div class="job-desc">Oversee daily operations and manage teams.</div>
-        <button class="apply-btn" onclick="alert('Apply for Operations Manager')">Apply Now</button>
-      </div>
+    <div class="slide" style="background: linear-gradient(135deg, rgba(0,51,102,0.2), transparent);">
+      <h2>Make a Difference Today</h2>
+      <button class="apply-btn">Apply Now</button>
     </div>
   </div>
-</div>
+</section>
 
+<!-- Hiring Section -->
+<section id="hiring" class="section animate" style="animation-delay: 0.2s;">
+  <h2 style="text-align:center; margin-bottom:30px;">Current Job Openings</h2>
+  <div class="hiring">
+    <div class="job">
+      <h3>Software Developer</h3>
+      <p>Join our tech team to build innovative solutions.</p>
+      <button class="apply-btn">Apply Now</button>
+    </div>
+    <div class="job">
+      <h3>Marketing Specialist</h3>
+      <p>Drive our brand presence and outreach strategies.</p>
+      <button class="apply-btn">Apply Now</button>
+    </div>
+    <div class="job">
+      <h3>UI/UX Designer</h3>
+      <p>Create engaging user experiences for our platform.</p>
+      <button class="apply-btn">Apply Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- Clients Section -->
+<section id="clients" class="section animate" style="animation-delay: 0.4s;">
+  <h2 style="text-align:center; margin-bottom:30px;">Our Clients</h2>
+  <div class="clients">
+    <div class="client-logo">Client 1</div>
+    <div class="client-logo">Client 2</div>
+    <div class="client-logo">Client 3</div>
+    <div class="client-logo">Client 4</div>
+    <div class="client-logo">Client 5</div>
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section id="faqs" class="section animate" style="animation-delay: 0.6s;">
+  <h2 style="text-align:center; margin-bottom:30px;">Frequently Asked Questions</h2>
+  <div class="faqs">
+    <div class="faq">
+      <div class="faq-question">What is the application process?</div>
+      <div class="faq-answer">You can apply directly through the website or contact our HR team for more info.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-question">What jobs are available?</div>
+      <div class="faq-answer">We have openings in tech, marketing, design, and more. Check our latest listings above.</div>
+    </div>
+    <div class="faq">
+      <div class="faq-question">How can I contact support?</div>
+      <div class="faq-answer">Use the contact form or email us at support@jobportal.com.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact & Footer -->
+<section id="contact" class="section animate" style="animation-delay: 0.8s;">
+  <h2 style="text-align:center; margin-bottom:20px;">Contact Us</h2>
+  <p style="text-align:center;">Email: info@jobportal.com | Phone: +123 456 7890 | Address: 123 Main St, City</p>
+</section>
+
+<footer class="footer">
+  <div class="footer-column">
+    <h4>Quick Links</h4>
+    <a href="#services">Our Services</a>
+    <a href="#hiring">Hiring</a>
+    <a href="#clients">Clients</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+  <div class="footer-column">
+    <h4>Follow Us</h4>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook">🌐</a>
+      <a href="#" aria-label="Twitter">🐦</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+    </div>
+  </div>
+  <div class="footer-column">
+    <h4>Contact</h4>
+    <p>Email: info@jobportal.com</p>
+    <p>Phone: +123 456 7890</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
 <script>
-  // Slider logic
-  let currentSlideIndex = 0;
-  const totalSlides = document.querySelectorAll('.slide').length;
-  const slidesContainer = document.getElementById('slides');
+  // Toggle mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
 
-  function showSlide(index) {
-    slidesContainer.style.transform = 'translateX(' + (-index * 100) + '%)';
-  }
+  menuToggle.addEventListener('click', () => {
+    if (navMenu.style.display === 'flex') {
+      navMenu.style.display = 'none';
+    } else {
+      navMenu.style.display = 'flex';
+    }
+  });
 
-  function nextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-    showSlide(currentSlideIndex);
-  }
+  // Animate FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const answer = q.nextElementSibling;
+      answer.classList.toggle('open');
+    });
+  });
 
-  setInterval(nextSlide, 4000); // change slide every 4 seconds
+  // Animate sections on scroll
+  const sections = document.querySelectorAll('.animate');
+  const options = {
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+        entry.target.style.transition = 'all 1s ease-out';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    section.style.opacity = 0;
+    section.style.transform = 'translateY(20px)';
+    observer.observe(section);
+  });
 </script>
-
 </body>
 </html>
