@@ -112,19 +112,12 @@ body {
 .slide {
   flex: 1 0 100%;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 60vh; /* or your preferred height */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
   border-radius: 8px;
 }
 
@@ -408,36 +401,31 @@ section {
 <!-- HERO SLIDER -->
 <section class="hero" id="hero">
   <div class="slider" id="slider">
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 1" />
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-caption">
         <h2>Join Our Dynamic Team</h2>
         <button class="apply-btn">Apply Now</button>
       </div>
     </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1494526585095-c4185f1d63eb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 2" />
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c4185f1d63eb?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-caption">
         <h2>Exciting Opportunities Await</h2>
         <button class="apply-btn">Apply Now</button>
       </div>
     </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 3" />
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-caption">
         <h2>Grow Your Career With Us</h2>
         <button class="apply-btn">Apply Now</button>
       </div>
     </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 4" />
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-caption">
         <h2>Be Part of Innovation</h2>
         <button class="apply-btn">Apply Now</button>
       </div>
     </div>
-    <div class="slide">
-      <img src="https://images.unsplash.com/photo-1549924738-9e2a9f3f4f84?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80" alt="Banner 5" />
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1549924738-9e2a9f3f4f84?ixlib=rb-4.0.1&auto=format&fit=crop&w=1600&q=80');">
       <div class="slide-caption">
         <h2>Make a Difference Today</h2>
         <button class="apply-btn">Apply Now</button>
